@@ -25,6 +25,7 @@ buildscript {
   repositories {
     mavenLocal()
     maven { url "https://aws.oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://maven.eliatra.com:443/artifactory/eliatra-opensearch-enterprise-distro-mvn-snapshots" }
     mavenCentral()
     maven { url "https://plugins.gradle.org/m2/" }
   }
@@ -161,6 +162,7 @@ allprojects {
 
 repositories {
   mavenLocal()
+  maven { url "https://maven.eliatra.com:443/artifactory/eliatra-opensearch-enterprise-distro-mvn-snapshots" }
   maven { url "https://aws.oss.sonatype.org/content/repositories/snapshots" }
   mavenCentral()
   maven { url "https://plugins.gradle.org/m2/" }
@@ -168,7 +170,7 @@ repositories {
 
 ext {
   getSecurityPluginDownloadLink = { ->
-    var repo = "https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/" +
+    var repo = "https://maven.eliatra.com:443/artifactory/eliatra-opensearch-enterprise-distro-mvn-snapshots/org/opensearch/plugin/" +
       "opensearch-security/$opensearch_build_snapshot/"
     var metadataFile = Paths.get(projectDir.toString(), "build", "maven-metadata.xml").toAbsolutePath().toFile()
     download.run {
